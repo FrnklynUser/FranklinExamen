@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ClienteDto {
+public class EventoDto {
 	private int id;
 	private String nombre;
 }

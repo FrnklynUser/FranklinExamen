@@ -2,24 +2,24 @@ package com.franklin.examen.converter;
 
 import org.springframework.stereotype.Component;
 
-import com.franklin.examen.dto.ClienteDto;
-import com.franklin.examen.entity.Cliente;
+import com.franklin.examen.dto.EventoDto;
+import com.franklin.examen.entity.Evento;
 
 @Component
-public class ClienteConverter extends AbstractConverter<Cliente, ClienteDto>{
+public class EventoConverter extends AbstractConverter<Evento, EventoDto>{
 	@Override
-	public ClienteDto fromEntity(Cliente entity) {
+	public EventoDto fromEntity(Evento entity) {
 		if(entity==null) return null;
-		return ClienteDto.builder()
+		return EventoDto.builder()
 				.id(entity.getId())
 				.nombre(entity.getNombre())
 				.build();
 	}
 
 	@Override
-	public Cliente fromDTO(ClienteDto dto) {
+	public Evento fromDTO(EventoDto dto) {
 		if(dto==null) return null;
-		return Cliente.builder()
+		return Evento.builder()
 				.id((long) dto.getId())
 				.nombre(dto.getNombre())
 				.build();

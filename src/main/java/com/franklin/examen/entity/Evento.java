@@ -25,25 +25,25 @@ import lombok.Setter;
 @Entity
 @Table(name = "cliente")
 @EntityListeners(AuditingEntityListener.class)
-public class Cliente {
+public class Evento {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 70, nullable = false)
+    @Column(length = 255, nullable = false)
     private String nombre;
 
-    @Column(name = "tipo_documento", length = 1, nullable = false)
-    private String tipoDocumento;
+    @Column(columnDefinition = "TEXT")
+    private String descripcion;
 
-    @Column(name = "numero_documento", length = 15, nullable = false, unique = true)
-    private String numeroDocumento;
+    @Column(name = "fecha_inicio")
+    private LocalDateTime fechaInicio;
 
-    @Column(length = 15, nullable = false)
-    private String telefono;
+    @Column(name = "fecha_fin")
+    private LocalDateTime fechaFin;
 
-    @Column(length = 70, nullable = false)
-    private String email;
+    @Column(precision = 10, scale = 2)
+    private Double costo;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreationTimestamp
@@ -52,6 +52,7 @@ public class Cliente {
     @Column(name = "updated_at", nullable = false)
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
 
 	public int getId() {
 		// TODO Auto-generated method stub
